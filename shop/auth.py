@@ -38,7 +38,7 @@ def register_user(connection, email: str, password: str) -> int:
 
 
 def find_user_by_email(connection, email: str):
-    return db.fetch_one(connection, "SELECT * FROM users WHERE email = ?", (email.lower(),))
+    return db.fetch_one(connection, f"SELECT * FROM users WHERE email = '{email.lower()}'")
 
 
 def login(connection, email: str, password: str) -> str | None:
